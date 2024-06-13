@@ -47,8 +47,6 @@ public class Homework {
   @ToString
   private static class Department {
     private String name;
-
-    // TODO: геттеры, сеттеры
   }
   @Getter
   @Setter
