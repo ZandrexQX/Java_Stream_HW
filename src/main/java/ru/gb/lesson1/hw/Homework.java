@@ -62,15 +62,12 @@ public class Homework {
     public String getNameDepartment(){
       return depart.getName();
     }
-
-    // TODO: геттеры, сеттеры
   }
 
   /**
    * Найти самого молодого сотрудника
    */
   static Optional<Person> findMostYoungestPerson(List<Person> people) {
-    // FIXME: ваша реализация здесь
     Optional<Person> person = people.stream()
             .min(Comparator.comparingInt(Person::getAge));
     return person;
@@ -80,7 +77,6 @@ public class Homework {
    * Найти департамент, в котором работает сотрудник с самой большой зарплатой
    */
   static Optional<Department> findMostExpensiveDepartment(List<Person> people) {
-    // FIXME: ваша реализация здесь
     Optional<Department> department = people.stream()
             .max(Comparator.comparingDouble(Person::getSalary))
             .flatMap(a -> Optional.ofNullable(a.getDepart()));
@@ -91,7 +87,6 @@ public class Homework {
    * Сгруппировать сотрудников по департаментам
    */
   static Map<Department, List<Person>> groupByDepartment(List<Person> people) {
-    // FIXME: ваша реализация здесь
     return people.stream()
             .collect(Collectors.groupingBy(Person::getDepart));
   }
@@ -100,7 +95,6 @@ public class Homework {
    * Сгруппировать сотрудников по названиям департаментов
    */
   static Map<String, List<Person>> groupByDepartmentName(List<Person> people) {
-    // FIXME: ваша реализация здесь
     return people.stream()
             .collect(Collectors.groupingBy(Person::getNameDepartment));
   }
@@ -109,7 +103,6 @@ public class Homework {
    * В каждом департаменте найти самого старшего сотрудника
    */
   static Map<String, Person> getDepartmentOldestPerson(List<Person> people) {
-    // FIXME: ваша реализация здесь
     return people.stream()
             .collect(Collectors.toMap(
                     Person::getNameDepartment,
@@ -126,7 +119,6 @@ public class Homework {
    * (прим. можно реализовать в два запроса)
    */
   static List<Person> cheapPersonsInDepartment(List<Person> people) {
-    // FIXME: ваша реализация здесь
     return people.stream()
             .collect(Collectors.toMap(
                     Person::getNameDepartment,
@@ -137,5 +129,4 @@ public class Homework {
                     }
             )).values().stream().toList();
   }
-
 }
